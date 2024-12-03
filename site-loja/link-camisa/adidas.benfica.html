@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/stylecamisas.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="../index.html">
+                <!-- <img src="./link-camisa/imagens/logo2.png" alt=""> -->
+
+                <h1>Logo</h1>
+            </a>
+        </div>
+
+        <div class="busca">
+            <input type="text" id="buscar" placeholder="O que está procurando?">
+            <button class="procurar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="../login e cadastro/cadastro.html"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a href="../carrinho/carrinho.html"><button class="carrinho-btn"><i
+                                    class="fa-solid fa-cart-shopping"></i></button></a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="results-camisa">
+            <nav class="nav-results">
+                <ul class="list-results"></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="info-camisa">
+            <div class="image-camisa">
+                <img src="../imagens/Adidas Benfica I.png" alt="" width="500px">
+            </div>
+
+            <div class="dados-camisa">
+                <h1>Camisa do Benfica I 24/25</h1>
+
+                <section class="valores">
+                    <p class="pagamento"><i class="fa-solid fa-money-bill"></i> R$399,99</p>
+                    <p class="pagamento"><i class="fa-solid fa-credit-card"></i> 12x de R$17,05</p>
+                </section>
+
+                <section class="personalizacao">
+                    <p>Tamanho: </p>
+                    <select class="tamanho">
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                    </select>
+                </section>
+
+                <section class="pagar">
+                    <button class="comprar">Comprar</button>
+                    <button class="adicionar-carrinho">Adicionar ao Carrinho <i
+                            class="fa-solid fa-cart-shopping"></i></button>
+                </section>
+
+                <div class="quantidade">
+                    <h3>Quantidade</h3>
+                    <div>
+                        <button id="plus" class="quantidade-btn">+</button>
+                        <span id="quantidade">1</span>
+                        <button id="minus" class="quantidade-btn">-</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <article class="article-buy">
+
+
+
+        <section class="container-buy">
+            <p class="preco-buy"></p>
+            <p class="tamanho-buy"></p>
+            <select name="" class="option-buy">
+                <option value="">Forma de pagamento</option>
+                <option value="Cartão">Cartão</option>
+
+            </select>
+
+            <div>
+                <button class="finish-buy">Comprar</button>
+                <button class="remove-article">Cancelar</button>
+            </div>
+
+
+        </section>
+
+    </article>
+
+
+
+
+    <footer>
+        <section class="infos">
+            <div class="sobre">
+                <h2>Sobre nós</h2>
+                <p>Nós somos uma loja de venda de camisas de futebol em Itapetininga e região, desde 2024.</p>
+            </div>
+
+            <div class="atendimento">
+                <h2>Atendimento ao cliente</h2>
+                <nav class="footer-list">
+                    <ul>
+                        <li>Política de Reembolso</li>
+                        <li>Política de Privacidade</li>
+                        <li>Termos de Serviço</li>
+                        <li>Política de Frete</li>
+                        <li>Aviso legal</li>
+                        <li>FAQ</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="contanto">
+                <h2>Contatos</h2>
+                <div class="midia">
+                    <i class="fa-brands fa-whatsapp"></i> 551500000000
+                </div>
+                <div class="midia">
+                    <i class="fa-solid fa-phone"></i> 551199999999
+                </div>
+                <div class="midia">
+                    <i class="fa-solid fa-envelope"></i> lojatime@gmail.com
+                </div>
+            </div>
+
+            <div id="midia-social">
+                <h2>Redes Sociais</h2>
+                <div class="social-midia">
+                    <i class="fa-brands fa-instagram"></i> lojatime
+                </div>
+                <div class="social-midia">
+                    <i class="fa-brands fa-twitter"></i> lojatime
+                </div>
+            </div>
+        </section>
+
+        <section class="pagamento">
+            <h3>Meios de pagamento</h3>
+            <section id="cartoes">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-pix"></i>
+                <i class="fa-brands fa-cc-diners-club"></i>
+            </section>
+        </section>
+
+        <section class="copyright">
+            <p>Copyright - 2024. Todos os direitos reservados.</p>
+        </section>
+    </footer>
+
+
+
+
+    <script>
+        const produto = {
+
+            nome: 'Benfica',
+            imagem: '../imagens/Adidas Benfica I.png',
+            preco: 400.00
+        };
+
+        // Função para adicionar ao carrinho
+        function adicionarAoCarrinho(produto) {
+            // Recupera o carrinho do localStorage ou inicializa um array vazio
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            // Adiciona o produto ao carrinho
+            carrinho.push(produto);
+
+            // Armazena o carrinho atualizado no localStorage
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            alert(`${produto.nome} foi adicionado ao carrinho!`);
+        }
+
+        // Adiciona evento de clique ao botão
+        document.querySelector('.adicionar-carrinho').addEventListener('click', () => {
+            adicionarAoCarrinho(produto);
+        });
+
+
+
+
+        const search = document.getElementById('buscar');
+
+  
+        const plus = document.getElementById('plus');
+        const minus = document.getElementById('minus');
+        const quantidade = document.getElementById('quantidade');
+        let contar = 1;
+
+        function mostrar() {
+            quantidade.textContent = contar;
+
+        }
+
+        // plus.onclick = () => {
+        //     contar++;
+        //     mostrar();
+        // };
+
+        if (plus) {
+            plus.onclick = () => {
+                contar++;
+                mostrar();
+            };
+        } else {
+            console.error('Elemento com id "plus" não encontrado.');
+        }
+
+
+
+        // minus.addEventListener('click', () => {
+        //     if (contar > 1) {
+        //         contar--;
+        //         mostrar();
+        //     }
+        // });
+
+        if (minus) {
+            minus.addEventListener('click', () => {
+                if (contar > 1) {
+                    contar--;
+                    mostrar();
+                }
+            });
+        } else {
+            console.error('Elemento com id "minus" não encontrado.');
+        }
+
+        const article_buy = document.querySelector('.article-buy')
+
+        const cartao = document.querySelector('.option-buy')
+
+        document.querySelector('.comprar').addEventListener('click', () => {
+            const selectedCamisa = produto;
+            const tamanho = document.querySelector('.tamanho');
+            const option_buy = document.querySelector('.option-buy');
+
+            if (tamanho && option_buy) {
+                const valorCompra = selectedCamisa.preco * contar;
+
+                article_buy.classList.add('mostrar');
+
+                const preco_buy = document.querySelector('.preco-buy');
+                preco_buy.innerHTML = `O valor da compra: R$${valorCompra.toFixed(2)}`;
+
+                const tamanho_buy = document.querySelector('.tamanho-buy');
+                tamanho_buy.innerHTML = `Tamanho: ${tamanho.value}`;
+
+                document.querySelector('.finish-buy').addEventListener('click', () => {
+                    if (option_buy.value === "") {
+                        alert('Escolha a forma de pagamento');
+                    } else {
+                        const mensagemCompra = `A quantidade do produto: ${contar}, assim o valor da compra é R$${valorCompra}. O Tamanho ${tamanho.value}. Forma de pagamento: ${option_buy.value}`;
+                        const confirmacao = confirm(mensagemCompra);
+
+                        if (confirmacao) {
+                            window.location.href = '../comprar/cartao.html';
+                        } else {
+                            article_buy.classList.remove('mostrar');
+                        }
+                    }
+                });
+
+            } else {
+                alert('Selecione um tamanho e uma forma de pagamento antes de comprar.');
+            }
+        });
+
+
+
+
+        document.querySelector('.remove-article').addEventListener('click', () => {
+            article_buy.classList.remove('mostrar')
+        })
+
+
+
+
+
+
+
+        const camisas = [
+            { name: 'Barcelona I 24/25', url: 'barcelona1.html', image: '../imagens/NIKE - Barcelona 1 2024-25.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Alemanha I 24/25', url: 'adidas-alemanha.html', image: '../imagens/ADIDAS Alemanha I-1.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Inter Miami 24/25', url: 'adidas-intermiami.html', image: '../imagens/Adidas Inter Miami 24-25.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Arsenal 24/25', url: 'adidas.arsenal.html', image: '../imagens/adidas Arsenal 24-25.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Inter Miami 24/25', url: 'adidas-intermiami.html', image: '../imagens/Adidas Inter Miami 24-25.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Holanda 24/25', url: 'holanda1.html', image: '../imagens/NIKE  -Holanda - 2024-25.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Corinthians I 24/25', url: 'corinthians.1.html', image: '../imagens/NIKE corinthians I branca.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Corinthians II 24/25', url: 'corinthians.2.html', image: '../imagens/corinthians - NIKE 24-25.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Estados Unidos I 24/25', url: 'eua_nike1.html', image: '../imagens/NIKE EUA I.png', preco: 400.00, valor: 'R$399,99' },
+            { name: 'Uruguai II 24/25', url: 'uruguai.1_nike.html', image: '../imagens/NIKE uruguai II branca.png', preco: 400.00, valor: 'R$399,99' },
+        ];
+
+
+        const procurarBtn = document.querySelector('.procurar');
+        const listResult = document.querySelector('.list-results');
+
+        listResult.classList.add('none');
+
+        function pesquisar(query) {
+            return camisas.filter(camisa => camisa.name.toLowerCase().includes(query.toLowerCase()));
+        }
+
+        function displayResult(results) {
+            if (results.length > 0) {
+                listResult.innerHTML = '';
+                listResult.classList.remove('none');
+
+                localStorage.setItem('camisasExport', JSON.stringify(results));
+
+                results.forEach(element => {
+                    const div = document.createElement('div');
+                    div.classList.add('camisa-pesquisa');
+
+                    const img = document.createElement('img');
+                    img.src = element.image;
+
+                    const a = document.createElement('a');
+                    a.href = element.url;
+                    a.textContent = element.name;
+
+                    const p = document.createElement('p');
+                    p.textContent = element.valor || 'Preço não disponível';
+
+                    div.appendChild(img);
+                    div.appendChild(a);
+                    div.appendChild(p);
+
+                    div.style.cursor = 'pointer';
+                    div.addEventListener('click', () => {
+                        window.location.href = element.url;
+                    });
+
+
+
+                    listResult.appendChild(div);
+                });
+            } else {
+                listResult.classList.add('none');
+            }
+        }
+
+        function result() {
+            const query = search.value.trim();
+            if (query !== '') {
+                const filteredResults = pesquisar(query);
+                displayResult(filteredResults);
+            } else {
+                listResult.classList.add('none');
+            }
+        }
+
+        search.addEventListener('input', result);
+
+        procurarBtn.addEventListener('click', () => {
+            result();
+            if (listResult.children.length > 0) {
+                window.location.href = `../result/results.html?search=${input}`;
+            }
+        });
+
+        search.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const input = search.value;
+                result();
+                if (listResult.children.length > 0) {
+                    window.location.href = `../result/results.html?search=${input}`;
+                }
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>

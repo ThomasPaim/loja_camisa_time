@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="carrinhoStyle.css">
+
+
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <a href="../index.html">
+                <!-- <img src="./link-camisa/imagens/logo2.png" alt=""> -->
+
+                <h1>Logo</h1>
+            </a>
+        </div>
+
+        <div class="busca">
+            <input type="text" id="buscar" placeholder="O que está procurando?">
+            <button id="procurar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="../login e cadastro/cadastro.html"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a href="../carrinho/carrinho.html"><button class="carrinho-btn"><i
+                                    class="fa-solid fa-cart-shopping"></i></button></a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="results-camisa">
+            <nav class="nav-results">
+                <ul class="list-results"></ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+
+        <div class="results">
+            <nav class="nav-results">
+                <ul class="list-results"></ul>
+            </nav>
+        </div>
+
+        <div id="inicio">
+
+            <div id="carrinho-div">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <h1>Carrinho</h1>
+
+        </div>
+
+        <section id="section-carrinho">
+
+            <section id="itens-carrinho">
+
+                <h2>Itens do carrinho: </h2>
+                <ul id="lista-carrinho"></ul>
+            </section>
+
+            <section id="realizarCompra">
+                <h3>Valor da compra: <span id="preco"></span></h3>
+                <button id="btn-buy">Comprar</button>
+            </section>
+
+
+        </section>
+
+
+
+
+    </main>
+
+    <article class="article-buy">
+
+
+
+        <section class="container-buy">
+            <p class="preco-buy"></p>
+            <p class="tamanho-buy"></p>
+            <select nome="" class="option-buy">
+                <option value="">Forma de pagamento</option>
+                <option value="Cartão">Cartão</option>
+                <option value="Pix">Pix</option>
+
+            </select>
+
+            <div>
+                <button class="finish-buy">Comprar</button>
+                <button class="remove-article">Cancelar</button>
+            </div>
+
+
+        </section>
+
+    </article>
+
+    <footer>
+        <section class="infos">
+            <div class="sobre">
+                <h2>Sobre nós</h2>
+                <p>Nós somos uma loja de venda de camisas de futebol em Itapetininga e região, desde 2024.</p>
+            </div>
+
+            <div class="atendimento">
+                <h2>Atendimento ao cliente</h2>
+                <nav class="footer-list">
+                    <ul>
+                        <li>Política de Reembolso</li>
+                        <li>Política de Privacidade</li>
+                        <li>Termos de Serviço</li>
+                        <li>Política de Frete</li>
+                        <li>Aviso legal</li>
+                        <li>FAQ</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="contanto">
+                <h2>Contatos</h2>
+                <div class="midia">
+                    <i class="fa-brands fa-whatsapp"></i> 551500000000
+                </div>
+                <div class="midia">
+                    <i class="fa-solid fa-phone"></i> 551199999999
+                </div>
+                <div class="midia">
+                    <i class="fa-solid fa-envelope"></i> lojatime@gmail.com
+                </div>
+            </div>
+
+            <div id="midia-social">
+                <h2>Redes Sociais</h2>
+                <div class="social-midia">
+                    <i class="fa-brands fa-instagram"></i> lojatime
+                </div>
+                <div class="social-midia">
+                    <i class="fa-brands fa-twitter"></i> lojatime
+                </div>
+            </div>
+        </section>
+
+        <section class="pagamento">
+            <h3>Meios de pagamento</h3>
+            <section id="cartoes">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-pix"></i>
+                <i class="fa-brands fa-cc-diners-club"></i>
+            </section>
+        </section>
+
+        <section class="copyright">
+            <p>Copyright - 2024. Todos os direitos reservados.</p>
+        </section>
+    </footer>
+
+    <!-- <script src="./link-camisa/camisa.js"></script> -->
+
+
+    <script>
+
+
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        let listaCarrinho = document.getElementById('lista-carrinho');
+
+        if (listaCarrinho) {
+
+            carrinho.forEach((item, index) => {
+                if (item && item.nome && item.preco && item.imagem) {
+                    let li = document.createElement('li');
+                    li.classList.add('li-div')
+
+                    let img = document.createElement('img');
+                    img.src = item.imagem;
+                    img.alt = item.nome;
+
+
+                    let texto = document.createElement('h3');
+                    texto.textContent = `${item.nome} - R$ ${parseFloat(item.preco).toFixed(2)}`;
+
+
+                    let botaoRemover = document.createElement('button');
+                    botaoRemover.textContent = 'Remover';
+                    botaoRemover.onclick = function () {
+                        removerDoCarrinho(index);
+                    };
+
+                    li.appendChild(img);
+                    li.appendChild(texto);
+                    li.appendChild(botaoRemover);
+                    listaCarrinho.appendChild(li);
+                }
+            });
+        }
+
+        // Função para remover item do carrinho
+        function removerDoCarrinho(index) {
+            carrinho.splice(index, 1); // Remove o item do array
+            localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o localStorage
+            window.location.reload(); // Recarrega a página para atualizar a lista
+        }
+
+        let valorTotalCompra = carrinho.reduce((total, item) => total + parseFloat(item.preco), 0);
+
+        document.querySelector('#preco').textContent = `R$ ${valorTotalCompra.toFixed(2)}`;
+
+
+        const option_buy = document.querySelector('.option-buy')
+
+
+
+
+
+        const article_buy = document.querySelector('.article-buy')
+        document.querySelector('#btn-buy').addEventListener('click', () => {
+
+
+            article_buy.classList.add('mostrar');
+
+            const preco_buy = document.querySelector('.preco-buy');
+            preco_buy.innerHTML = ` O valor da compra:  R$${valorTotalCompra.toFixed(2)}`
+
+
+
+
+
+            document.querySelector('.finish-buy').addEventListener('click', () => {
+                if (option_buy.value === "") {
+                    alert('Escolha a forma de pagamento');
+                } else {
+                    const mensagemCompra = `O valor da compra é R$${valorTotalCompra}.Forma de pagamento: ${option_buy.value}`;
+                    const confirmacao = confirm(mensagemCompra);
+
+                    if (confirmacao) {
+                        window.location.href = '../comprar/cartao.html';
+                    } else {
+                        article_buy.classList.remove('mostrar');
+                    }
+                }
+            });
+
+
+
+        });
+
+        document.querySelector('.remove-article').addEventListener('click', () => {
+            article_buy.classList.remove('mostrar')
+        })
+
+
+
+
+
+
+        const camisasArray = JSON.parse(localStorage.getItem("camisasArray"));
+
+
+        const list_results = document.querySelector('.list-results');
+        const busca = document.getElementById('buscar');
+
+        const results = document.querySelector('.results')
+
+
+        busca.addEventListener('input', (event) => {
+            const value = formatString(event.target.value);
+
+
+            list_results.innerHTML = '';
+
+            if (value !== '') {
+                let encontrou = false;
+
+
+                camisasArray.forEach(camisa => {
+                    const valueCamisas = formatString(camisa.name);
+
+                    if (valueCamisas.indexOf(value) !== -1) {
+                        encontrou = true;
+
+
+                        results.classList.remove('none');
+
+
+                        const div = document.createElement('div');
+                        div.classList.add('camisa-pesquisa');
+
+                        const img = document.createElement('img');
+                        img.src = camisa.image;
+
+                        const a = document.createElement('a');
+                        a.href = camisa.url;
+                        a.textContent = camisa.name;
+
+                        const p = document.createElement('p');
+                        p.textContent = camisa.valor || 'Preço não disponível';
+
+
+                        div.appendChild(img);
+                        div.appendChild(a);
+                        div.appendChild(p);
+                        div.style.cursor = 'pointer';
+
+                        div.addEventListener('click', () => {
+                            window.location.href = camisa.url;
+                        });
+
+
+                        list_results.appendChild(div);
+                    }
+                });
+
+
+                if (!encontrou) {
+                    results.classList.add('none');
+                }
+            } else {
+
+                results.classList.add('none');
+            }
+        });
+
+        busca.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const input = formatString(busca.value);
+
+                
+                if (input !== '') {
+                    window.location.href = `/results.html?search=${input}`;
+                }
+            }
+        });
+
+
+        function formatString(value) {
+            return value
+                .trim()
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

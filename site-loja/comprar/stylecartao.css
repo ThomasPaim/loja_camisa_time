@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200;1,300;1,400&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais do corpo */
+body {
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+/* Estilos do main */
+main {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Estilos da seção principal do formulário */
+#cartao-section-main {
+    border: 2px solid #121212;
+    padding: 20px 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cartao-section-main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Estilos para mensagens de erro */
+.messageError {
+    color: red;
+    font-size: 0.85rem;
+    display: none;
+}
+
+/* Estilos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Estilos para cada grupo de input */
+.cartao-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Estilos dos inputs */
+input, select {
+    border: none;
+    border-bottom: 2px solid #121212;
+    outline: none;
+    padding: 10px 5px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007BFF;
+}
+
+/* Estilos para o vencimento */
+#vencimento {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Estilos para o grupo de inputs do número do cartão */
+#inputNum {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#inputNum input {
+    width: 60px;
+    text-align: center;
+}
+
+/* Estilos do botão enviar */
+#enviar {
+    padding: 10px 20px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #121212;
+    color: #fff;
+    width: 100%;
+    max-width: 200px;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+#enviar:hover {
+    background-color: #007BFF;
+}
+
+/* Estilos para seletores */
+select {
+    border: 2px solid #121212;
+    padding: 8px 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    #vencimento, #inputNum {
+        flex-direction: column;
+    }
+
+    #cartao-section-main {
+        gap: 1rem;
+        padding: 15px;
+    }
+}
+
+/* Responsividade para smartphones */
+@media (max-width: 480px) {
+    #cartao-section-main {
+        padding: 10px;
+    }
+
+    #enviar {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    input, select {
+        max-width: 100%;
+    }
+
+    #inputNum input {
+        width: 100%;
+    }
+}
