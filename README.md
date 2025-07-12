@@ -1,2 +1,7 @@
 # loja_camisa_time
-Loja de camisas de time, site apenas para praticar
+<h2>Loja de camisas de time, site apenas para praticar</h2>
+
+<p>Conhecimentos praticados: </p>
+<ul>
+  <li>LocalStorage</li>
+</ul>
