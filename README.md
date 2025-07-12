@@ -4,4 +4,6 @@
 <p>Conhecimentos praticados: </p>
 <ul>
   <li>LocalStorage</li>
+  <li>ClassList</li>
+  <li>Functions</li>
 </ul>
