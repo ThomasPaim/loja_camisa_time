@@ -1,13 +1,18 @@
 package com.ecommerce.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Endereco {
@@ -16,8 +21,12 @@ public class Endereco {
     private Long idEndereco;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "endereco_id")
     private Usuario usuario;
+
+
+        @OneToMany(mappedBy = "endereco", fetch = FetchType.LAZY)
+    private List<Pedido> pedido = new ArrayList<>();
 
     private String pais;
     private String estado;
@@ -27,6 +36,10 @@ public class Endereco {
     private String complemento;
     private String bairro;
     private String cep;
+
+    public List<Pedido> getPedido() {
+        return pedido;
+    }
     
     public String getBairro() {
         return bairro;
@@ -79,7 +92,12 @@ public class Endereco {
         this.cidade = cidade;
     }
     public void setComplemento(String complemento) {
-        this.complemento = complemento;
+        this.complemento =
+         complemento;
+    }
+
+    public void setPedido(List<Pedido> pedido) {
+        this.pedido = pedido;
     }
 
     public void setEstado(String estado) {
